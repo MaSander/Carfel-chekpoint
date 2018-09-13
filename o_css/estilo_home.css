@@ -1,0 +1,412 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: oxygen;
+}
+
+.flex-cointainer {
+    display: flex;
+}
+
+
+/* inicio do topo / navegador */
+
+.topo-nav {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.660);
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 99;
+}
+
+.topo-logo {
+    padding: 10px 10px;
+}
+
+.navegador {
+    flex-direction: row;
+    width: 100%;
+}
+
+.navegador ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.navegador a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.navegador a:hover {
+    text-shadow: 2px 3px 5px  blue;
+    font-size: 2em;
+    transition: 0.5s;
+}
+
+.barra-brc {
+    width: 1px;
+    height: 100%;
+    background-color: white;
+}
+/* final do topo / navegador */
+
+/* começo do banner */
+.banner h1 {
+    color: white;
+    text-shadow: 2px 3px 5px  blue;
+    font-size: 10em;
+    font-weight: 800;
+}
+
+.banner {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../imagens_carfel/computer-coffee.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* final do banner */
+
+/* inicio de explicaçao */
+
+.resumo {
+    flex-direction: column;
+    align-items: center;
+}
+
+#explicacao {
+    margin-top: 25px;
+    width: 98%;
+    height: 80vh;
+    border-radius: 10px;
+}
+
+.exp-video {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.exp-video h2 {
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.exp-video p {
+    padding: 30px 30%;
+    text-align: center;
+}
+
+.exp-preta {
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.exp-branca {
+    background-color: rgb(231, 231, 231);    
+    align-items: center;
+    justify-content: space-around;
+}
+
+.texto-expv {
+    width: 40%;
+}
+
+.imagem_exp_1 img {
+    border-radius: 15px;
+}
+
+.imagem_exp_3 img {
+    border-radius: 3px;
+}
+
+.imagem_exp_2 img {
+    border-radius: 3px;
+}
+/* final de explicaçao */
+
+/* inicio planos */
+
+#planos {   
+    margin-top: 25px !important ;
+    padding: 40px 0px;
+    width: 98%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.035);
+    margin: auto;
+    color: white;
+}
+
+.planos {
+    align-items: center;
+    justify-content: space-around;
+}
+
+.plano_1 {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.plano_2 {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border: 25px solid #1D94B8;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.plano_3 {
+    width: 520px;
+    height: 520px;
+    background-color: black;
+    border: 25px solid gold;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.texto_plano {
+    width: 70%;
+}
+
+/* final planos */
+
+/* roda pe */
+footer {
+    margin-top: 25px;
+    color: white;
+    background-color: black;
+    justify-content: space-around;
+    padding: 30px 30px;
+}
+/* final roda pe */
+
+/* inicio roda pe */
+footer {
+    height: 60vh;
+    margin-top: 25px;
+    color: white;
+    background-color: black;
+    justify-content: space-around;
+    padding: 30px 30px;
+}
+
+.produtor a {
+    color: white;
+}
+/* final roda pe */
+
+/* chat----------------------------------------------------------- */
+
+.flex-container {
+    display: flex;
+}
+
+#chat .flex-container > * {
+    flex: 1;
+}
+
+#chat {
+    width: 400px;
+    height: 40vh;
+    background-color: lightskyblue;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+}
+
+#chat header {
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    padding-left: .2rem;
+    padding-top: .1rem;
+}
+
+#chat .perfil {
+    flex: 4;
+    align-items: center;
+}
+
+
+#chat nav {
+    align-items: center;
+
+}
+
+#chat .p-img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#chat .p-dados{
+    flex: 4;
+}
+
+#chat .p-img img {
+    width: 65%;
+    height: 75%;
+    border-radius: 50%;
+
+}
+
+#chat .p-nome {
+    color: white;
+    font-weight: 600;
+}
+
+#chat .p-status {
+    color: rgb(95, 255, 47);
+}
+
+#chat .acoes a {
+    color: aliceblue;
+}
+/* final do topo do chat */
+
+#chat main {
+    width: 100%;
+    height: 31vh;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+#chat .chat-msg {
+    width: 80%;
+    background-color: #ccc;
+    border-radius: 20px;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+#chat .chat-msg-enviada {
+    align-self: flex-end;
+    background-color: lightgreen;
+}
+
+#chat footer {
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#chat footer form {
+    flex: 6 !important;
+}
+
+#chat form textarea /*mensagem*/ {
+    width: 100%;
+}
+
+#chat footer i {
+    flex: 1;
+    color: aliceblue;
+}
+
+/* responsividade */
+
+@media screen and (max-width: 1255px) {
+
+    .banner h1 {
+        font-size: 6em;
+    }
+
+    .exp-preta {
+        flex-direction: column-reverse;
+    }
+
+    .exp-branca {
+        flex-direction: column;
+    }
+
+    .planos {
+        flex-direction: column-reverse;
+    }
+
+    .plano_2 {
+        margin-top: 40px;
+    }
+
+    .plano_1 {
+        margin-top: 40px;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    #chat {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 570px) {
+
+    .banner h1 {
+        font-size: 3em;
+    }
+
+    .video-resumo iframe {
+        width: 370px;
+    }
+
+    .plano_exp_1 img {
+        width: 400px;
+    }
+    
+    .plano_exp_3 img {
+       width: 400px;
+    }
+    
+    .plano_exp_2 img {
+       width: 400px;
+    }
+
+    .plano_3 {
+        width: 420px;
+        height: 420px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .email-rp {
+        margin-top: 8px;
+    }
+
+    .produtor {
+        margin-top: 8px;
+    }
+}
