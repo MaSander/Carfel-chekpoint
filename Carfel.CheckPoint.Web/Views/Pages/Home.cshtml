@@ -1,0 +1,179 @@
+﻿    @switch (@ViewBag.Tipo)
+    {
+       case "Administrador":
+       {
+           Layout= "MasterPageAdimin";
+           break;
+       }
+       case "Comum":
+       {
+            if(ViewBag.UsuarioNome != null)
+            {
+                Layout= "MasterPageLogado";
+            } else {
+                Layout= "MasterPageDeslogado";
+            }
+           break;
+       }
+       @default:
+       {
+           Layout= "MasterPageDeslogado";
+           break;
+       }
+    }
+
+<head>
+        <link rel="stylesheet" href="/Style/Home.css">
+
+    <title>Check-Point / inicio</title>
+</head>
+
+<body>
+
+    <main>
+
+
+        <!-- começo da explicaçoes -->
+        <section class="resumo flex-container">
+
+            <!-- video e resenha -->
+            <div id="bloco_1" class="exp-video flex-container">
+                <h1>Carfel Check-Point</h1>
+                <h2>A evolução do home office</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sed porro natus nulla, rem tempora
+                    ipsum numquam animi eveniet quisquam ullam eos error si
+                </p>
+                <div class="video-resumo">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2W25veMClcU" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+                <span>(video meramente ilustrativo)</span>
+            </div>
+
+            <!-- explicaçao 1 -->
+            <div id="explicacao" class="exp-preta flex-container">
+                <div class="texto-expv">
+                    <p>softwer para o empresario</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus ut doloribus id! Omnis adipisci, inventore,
+                        quia quis quaerat incidunt mollitia quisquam tempore ex voluptate corporis aliquam debitis illum
+                        culpa itaque?
+                    </p>
+                </div>
+
+                <div class="plano_exp_1">
+                    <img src="imagens_carfel/circulo espc azul.jpg" alt="globo azul">
+                </div>
+
+            </div>
+
+            <!-- explicaçao 2 -->
+            <div id="explicacao" class="exp-branca flex-container">
+
+                <div class="plano_exp_2">
+                    <img src="imagens_carfel/mesa_pc_cel.jpeg" alt="computador em uma mesa">
+                </div>
+
+                <div class="texto-expv">
+                    <p>Trabalho a distancia</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium cumque quia quod cupiditate impedit
+                        sapiente vero expedita error? Hic, amet voluptate quia ipsum obcaecati sunt cumque blanditiis accusantium
+                        ad magnam.</p>
+                </div>
+            </div>
+
+            <!-- explicaçao 3 -->
+            <div id="explicacao" class="exp-preta flex-container">
+                <div class="texto-expv">
+                    <p>Controle de equipe</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint architecto distinctio fugiat incidunt,
+                        harum nam autem ratione provident dignissimos nesciunt commodi doloremque. Vero accusamus repudiandae
+                        ad eaque nostrum culpa optio.</p>
+                </div>
+
+                <div class="plano_exp_3">
+                    <img src="imagens_carfel/equipe.jpg" alt="eqiepe">
+                </div>
+
+            </div>
+
+        </section>
+        <!-- final das explicacões -->
+
+        <!-- inicio dos plano -->
+        <div id="planos" class="planos flex-container">
+
+            <!-- plano 1 -->
+            <div class="plano_1 flex-container">
+                <div class="img_rs_1">
+                    <h2>Free</h2>
+                </div>
+                <div class="texto_plano">
+                    <p>monitoramento de 1 pessoa</p>
+                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis provident dolor hic dolorem reiciendis
+                        cupiditate ipsum adipisci rem nostrum eligendi? Debitis beatae sunt ex pariatur vel accusamus assumenda
+                        sint unde?</span>
+                </div>
+            </div>
+
+            <!-- plano 2 -->
+            <div class="plano_2 flex-container">
+                <div class="img_rs_2">
+                    <h2>19,90</h2>
+                </div>
+                <div class="texto_plano">
+                    <p>monitoramento ded 5 grupos de 5 pessoas</p>
+                    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error nulla neque exercitationem eum iste laborum
+                        natus fugiat quo velit voluptates possimus deleniti, quam aperiam rem in sapiente, similique nemo
+                        officia!</span>
+                </div>
+            </div>
+
+            <!-- plano 3 -->
+            <div class="plano_3 flex-container">
+                <div class="img_rs_3">
+                    <h2>199,90</h2>
+                </div>
+                <div class="texto_plano">
+                    <p>monitoramentos ilimitados</p>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, totam impedit. Dicta, asperiores?
+                        Est consequuntur, minus aspernatur, labore mollitia a accusantium necessitatibus earum expedita nam
+                        natus neque, veritatis iusto qui?</span>
+                </div>
+            </div>
+
+        </div>
+        <!-- final dos planos -->
+
+    </main>
+
+</body>
+
+<!-- inicio chat online -->
+
+    <div class="Comentario">
+
+        <h3>Comentarios</h3>
+
+
+            @{
+                if(ViewBag.UsuarioNome != null)
+                {
+                    <form action="/Comentario/Cadastro" method="POST">
+
+                        <label>
+                            <input type="text" name="texto" required>
+                        </label>
+
+                        <label>
+                            <button class="button" type="submit" value="Salvar">Comentar</button>
+                        </label>
+                        
+                    </form>
+                }
+            }
+
+    </div>
+
+<!-- final do chat online -->
+
+</html>

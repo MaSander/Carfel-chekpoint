@@ -1,0 +1,86 @@
+main {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* começo de historia */
+
+#historia {
+    margin-top: 85px;
+    width: 98%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+    flex-direction: column;
+    text-align: center;
+}
+
+.historia_1 {
+    padding: 30px 50px;
+}
+
+.historia_2 {
+    padding: 30px 0px;
+    justify-content: space-around; 
+}
+
+.imagem_historia {
+    width: 400px;
+    height: 500px;
+    background-color: yellowgreen;
+}
+
+.texto_hist_2 {
+    width: 45%;
+    height: 200px;
+}
+
+/* final de historia */
+
+/* inicio de outros trabalhos */
+
+#outros_trabalhos {
+    margin-top: 25px;
+    width: 98%;
+    border-radius: 15px;
+    padding: 30px 0px;
+    background-color: rgba(0, 0, 0, 0.035);
+    text-align: center;
+}
+
+.fila_trab_1 {
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.fila_trab_2 {
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.imagem_ot {
+    width: 400px;
+    height: 400px;
+    background-color: yellowgreen;
+}
+
+/* final de outros trabalhos */
+
+#rede_social {
+    margin-top: 25px;
+    width: 98%;
+    border-radius: 15px;
+    padding: 30px 0px;
+    background-color: rgba(0, 0, 0, 0.035);
+    text-align: center;
+}
+
+.redes_sociais {
+    justify-content: space-around;
+}
+
+#icons {
+    margin-top: 20px;
+    width: 90px;
+    height: 90px;
+    background-color: yellowgreen;
+}

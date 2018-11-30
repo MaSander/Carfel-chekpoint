@@ -1,0 +1,158 @@
+/* inicio de explicaçao */
+
+/* main */
+#bloco_1
+{
+    padding: 30px 30px;
+    margin-top: 85px;
+    width: 98%;
+    border-radius: 15px;
+}
+
+.resumo {
+    flex-direction: column;
+    align-items: center;
+}
+
+#explicacao {
+    margin-top: 25px;
+    width: 98%;
+    height: 80vh;
+    border-radius: 10px;
+}
+
+.exp-video {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.exp-video h2 {
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.exp-video p {
+    padding: 30px 30%;
+    text-align: center;
+}
+
+.exp-preta {
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.texto-expv {
+    width: 30%;
+}
+
+.imagem_exp_1 img {
+    border-radius: 15px;
+}
+
+.imagem_exp_3 img {
+    border-radius: 3px;
+}
+
+.exp-branca {
+    background-color: rgb(231, 231, 231);    
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imagem_exp_2 img {
+    border-radius: 3px;
+}
+/* final de explicaçao */
+
+/* inicio planos */
+
+#planos {
+    margin-top: 25px !important ;
+    width: 98%;
+    height: 100vh;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.035);
+    margin: auto;
+    color: white;
+}
+
+.planos {
+    align-items: center;
+    justify-content: space-around;
+}
+
+.plano_1 {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.plano_2 {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border: 25px solid #1D94B8;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.plano_3 {
+    width: 520px;
+    height: 520px;
+    background-color: black;
+    border: 25px solid gold;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.texto_plano {
+    width: 70%;
+}
+
+/* final planos */
+
+/* Comentarios inicio */
+
+.Comentario
+{
+    margin-top: 25px !important ;
+    width: 98%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.035);
+    margin: auto;
+    text-align: center;
+}
+
+.Comentario h3{
+    padding: 20px 0 10px 0;
+    font-size: 2em;
+}
+
+/* Comentarios final */
+
+/* responsividade */
+
+@media screen and (max-width: 1255px) {
+
+    .banner h1 {
+        font-size: 6em;
+    }
+
+}

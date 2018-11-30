@@ -1,0 +1,40 @@
+main{
+    height: 85vh;
+}
+
+/* main */
+#bloco_1
+{
+    padding: 30px 30px;
+    margin-top: 85px;
+    width: 98%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.questionario
+{
+    height: 100%;
+}
+
+.questionario form
+{
+    flex-direction: column;
+}
+.questionario form *{
+    padding: 30px 0 0 0;
+}
+
+.button
+{
+margin-top: 2em;
+width: 10em;
+display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.mensagem
+{
+    margin-top: 20px;
+}
