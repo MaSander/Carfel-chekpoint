@@ -9,11 +9,13 @@ namespace Carfel.CheckPoint.Web.Models
         public string Nome {get; set;}
         public string Texto { get; set; }
         public DateTime Horaria { get; set; }
-        public ComentarioModel (string nome, string texto, DateTime horario)
+        public string Status { get; set; } // espera; aceito; rejeitado
+        public ComentarioModel (string nome, string texto, DateTime horario, string status)
         {
             this.Nome = nome;
             this.Texto = texto;
             this.Horaria = horario;
+            this.Status = status;
         }
     }
 }

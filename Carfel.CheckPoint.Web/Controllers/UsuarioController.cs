@@ -11,7 +11,6 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
         public UsuarioController () {
             UsuarioRepositorio = new UsuarioRepositorioSerializacao ();
-
         }
 
         #region cadastro de usuario
@@ -21,6 +20,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
             UsuarioRepositorioSerializacao repositorioSerializacao = new UsuarioRepositorioSerializacao ();
 
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString("UsuarioTipo");
             ViewBag.UsuarioNome = HttpContext.Session.GetString("UsuarioNome");
             // repositorioSerializacao.CadastraADM ();
 
@@ -39,6 +39,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
             if (usuarioModel.Email.Contains ('@') && usuarioModel.Email.Contains (".com")) {
                 if (usuarioModel.Senha.Length >= 6) {
 
+                    usuarioModel.Status = EnTiposUsuario.Comum.ToString();
                     UsuarioRepositorio.Cadastrar (usuarioModel);
 
                     ViewBag.Mensagem = "Usuario cadastrado !";
@@ -57,6 +58,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
         [HttpGet]
         public ActionResult Login () {
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString("UsuarioTipo");
             ViewBag.UsuarioNome = HttpContext.Session.GetString("UsuarioNome");
             return View ();
         }
@@ -64,20 +66,11 @@ namespace Carfel.CheckPoint.Web.Controllers {
         [HttpPost]
         public ActionResult Login (IFormCollection form) {
 
-            UsuarioModel usuario = new UsuarioModel (email: form["email"],senha: form["senha"]);
-
-            UsuarioModel usuarioModel = UsuarioRepositorio.BuscarEmailSenha(usuario.Email,usuario.Senha);
-
+            UsuarioModel usuarioModel = UsuarioRepositorio.BuscarEmailSenha(form["email"],form["senha"]);
 
             if (usuarioModel != null) {
 
-                if(usuarioModel.Email == "adm@email.com" && usuarioModel.Senha == "senha123")
-                {
-                    HttpContext.Session.SetString("UsuarioNome", usuarioModel.Nome);
-                    HttpContext.Session.SetString("Tipo", TiposUsuario.Administrador.ToString());
-                    return View();
-                }
-
+                HttpContext.Session.SetString("UsuarioTipo", usuarioModel.Status);
                 HttpContext.Session.SetString("UsuarioNome", usuarioModel.Nome);
                 HttpContext.Session.SetString("UsuarioEmail", usuarioModel.Email);
                 return RedirectToAction ("Home","Pages");
@@ -91,10 +84,28 @@ namespace Carfel.CheckPoint.Web.Controllers {
             // controler do adiministrador
 
         [HttpGet]
-        public ActionResult Aprovacao() => View();
+        public ActionResult Aprovar(){
+
+            ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado();
+            
+            ViewData["Comentarios"] = comentarioRepositorio.Listar();
+
+            return View();
+        }
 
         [HttpPost]
-        public ActionResult Aprovacao(IFormCollection form){
+        public ActionResult Aprovar(IFormCollection form){
+
+            ComentarioRepositorioSerializado comentario = new ComentarioRepositorioSerializado();
+
+            if(form["choice"] == "aprovar")
+            {
+                comentario.Editar(EnTiposComentarios.aprovado.ToString(), int.Parse(form["id"]));
+            }
+            if(form["choice"] == "rejeitar")
+            {
+                comentario.Editar(EnTiposComentarios.rejeitado.ToString(), int.Parse(form["id"]));
+            }
 
             return View();
         }

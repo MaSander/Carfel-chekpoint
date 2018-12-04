@@ -1,0 +1,62 @@
+@using Carfel.CheckPoint.Web.Models;
+
+    @{
+        Layout= "MasterPageAdimin";
+    }
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro de usuario</title>
+
+    <link rel="stylesheet" href="/Style/Cadastro.css">
+    
+</head>
+
+<body>
+    <main class="flex-container">
+
+        <div id="bloco_1">
+
+        <h1>Cadastro de usuario</h1>
+
+        <div class="avaliacao">
+
+
+            <form action="/Usuario/Aprovar" method="POST">
+
+                <!-- inicio do bloco do comentario -->
+                @foreach(ComentarioModel item in ViewData["Comentarios"] as List<ComentarioModel>)
+                {
+                    @if(item.Status == "espera")
+                    {
+
+                        <div id="bloco_comentario flex-container">
+
+                            <div class="conteudo">
+                            <p class="comentario_nome">@item.Nome</p>
+                            <div class="comentado">@item.Texto</div>
+                            </div>
+
+                            <div class="escolha">
+                                <input type="hidden" name="id" value="@item.Id">
+                                <button class="btn_escolha" type="submit" name="choice" value="aprovar">Aprovar</button>
+                                <button class="btn_escolha" type="submit" name="choice" value="rejeitar">Rejeitar</button>
+                            </div>
+                        </div>
+                    }
+                }
+                <!-- final do bloco do comentario -->
+
+            </form>
+        </div>
+        
+        </div>
+
+    </main>
+
+</body>
+</html>

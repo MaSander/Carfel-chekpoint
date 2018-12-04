@@ -1,4 +1,5 @@
-﻿    @switch (@ViewBag.Tipo)
+﻿@using Carfel.CheckPoint.Web.Models;
+    @switch (@ViewBag.UsuarioTipo)
     {
        case "Administrador":
        {
@@ -155,8 +156,8 @@
         <h3>Comentarios</h3>
 
 
-            @{
-                if(ViewBag.UsuarioNome != null)
+            
+                @if(ViewBag.UsuarioNome != null)
                 {
                     <form action="/Comentario/Cadastro" method="POST">
 
@@ -170,7 +171,21 @@
                         
                     </form>
                 }
-            }
+            
+                            <!-- inicio do bloco do comentario -->
+                @foreach(ComentarioModel item in ViewData["Comentarios"] as List<ComentarioModel>)
+                {
+                    @if(item.Status == "aprovado")
+                    {
+                        <div id="bloco_comentario flex-container">
+                            <div class="conteudo">
+                            <p class="comentario_nome">@item.Nome</p>
+                            <div class="comentado">@item.Texto</div>
+                            </div>
+                        </div>
+                    }
+                }
+                <!-- final do bloco do comentario -->
 
     </div>
 

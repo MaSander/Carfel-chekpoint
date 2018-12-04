@@ -23,7 +23,8 @@ namespace Carfel.CheckPoint.Web.Controllers
             ComentarioModel comentarioModel = new ComentarioModel(
                 nome: HttpContext.Session.GetString("UsuarioNome"),
                 texto: form["texto"],
-                horario: DateTime.Now
+                horario: DateTime.Now,
+                status: EnTiposComentarios.espera.ToString()
             );
 
             ComentarioRepositorio.Cadastrar(comentarioModel);

@@ -5,24 +5,19 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Carfel.CheckPoint.Web.Interfaces;
 using Carfel.CheckPoint.Web.Models;
 
-namespace Carfel.CheckPoint.Web.Repositorios
-{
-    public class UsuarioRepositorioSerializacao : IUsuario
-    {
+namespace Carfel.CheckPoint.Web.Repositorios {
+    public class UsuarioRepositorioSerializacao : IUsuario {
 
         private List<UsuarioModel> UsuariosSalvos { get; set; }
 
         /// <summary>
         /// Cria uma lista de usuario
         /// </summary>
-        public UsuarioRepositorioSerializacao()
-        {
-            if(File.Exists("usuario.dat"))
-            {
-                UsuariosSalvos = LerArquivoSerializado();
-            }else
-            {
-                UsuariosSalvos = new List<UsuarioModel>();
+        public UsuarioRepositorioSerializacao () {
+            if (File.Exists ("usuario.dat")) {
+                UsuariosSalvos = LerArquivoSerializado ();
+            } else {
+                UsuariosSalvos = new List<UsuarioModel> ();
             }
         }
 
@@ -30,30 +25,26 @@ namespace Carfel.CheckPoint.Web.Repositorios
         /// Le o arquivo serealizado e transforma em lista
         /// </summary>
         /// <returns>Retorna Lista de usuario</returns>
-        private List<UsuarioModel> LerArquivoSerializado()
-        {
-            byte[] bytesSerializados = File.ReadAllBytes("usuario.dat");
+        private List<UsuarioModel> LerArquivoSerializado () {
+            byte[] bytesSerializados = File.ReadAllBytes ("usuario.dat");
 
-            MemoryStream memoria = new MemoryStream(bytesSerializados);
+            MemoryStream memoria = new MemoryStream (bytesSerializados);
 
-            BinaryFormatter serializador = new BinaryFormatter();
+            BinaryFormatter serializador = new BinaryFormatter ();
 
-            return (List<UsuarioModel>) serializador.Deserialize(memoria);
+            return (List<UsuarioModel>) serializador.Deserialize (memoria);
         }
-
-        
 
         /// <summary>
         /// adiciona um usuario a lista de usuario
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns>retorna um usuario</returns>
-        public UsuarioModel Cadastrar(UsuarioModel usuario)
-        {
+        public UsuarioModel Cadastrar (UsuarioModel usuario) {
             usuario.Id = UsuariosSalvos.Count + 1;
-            UsuariosSalvos.Add(usuario);
+            UsuariosSalvos.Add (usuario);
 
-            EscreverNoArquivo();
+            EscreverNoArquivo ();
 
             return usuario;
         }
@@ -61,17 +52,16 @@ namespace Carfel.CheckPoint.Web.Repositorios
         /// <summary>
         /// Serializa a lista de usuario e escreve no arquivo
         /// </summary>
-        private void EscreverNoArquivo()
-        {
-            MemoryStream memoria = new MemoryStream();
+        private void EscreverNoArquivo () {
+            MemoryStream memoria = new MemoryStream ();
 
-            BinaryFormatter serializadora = new BinaryFormatter();
+            BinaryFormatter serializadora = new BinaryFormatter ();
 
-            serializadora.Serialize(memoria, UsuariosSalvos);
+            serializadora.Serialize (memoria, UsuariosSalvos);
 
-            byte[] bytes = memoria.ToArray();
+            byte[] bytes = memoria.ToArray ();
 
-            File.WriteAllBytes("usuario.dat", bytes);
+            File.WriteAllBytes ("usuario.dat", bytes);
         }
 
         /// <summary>
@@ -81,25 +71,23 @@ namespace Carfel.CheckPoint.Web.Repositorios
             if (!File.Exists ("usuario.dat")) {
                 UsuarioModel usuarioModel = new UsuarioModel ();
 
-                UsuarioRepositorioSerializacao usuarioRepositorio = new UsuarioRepositorioSerializacao ();
-
-                usuarioModel.Id = 00001;
+                usuarioModel.Id = 0000;
                 usuarioModel.Nome = "ADM";
                 usuarioModel.Email = "adm@email.com";
                 usuarioModel.Senha = "senha123";
+                usuarioModel.Status = EnTiposUsuario.Administrador.ToString();
 
-                usuarioRepositorio.Cadastrar (usuarioModel);
+                Cadastrar (usuarioModel);
             }
         }
 
-        public UsuarioModel BuscarEmailSenha(string email, string senha)
-        {
-            foreach (UsuarioModel item in UsuariosSalvos)
-            {
-                if(email == item.Email && senha == item.Senha)
-                return item;
+        public UsuarioModel BuscarEmailSenha (string email, string senha) {
+            foreach (UsuarioModel item in UsuariosSalvos) {
+                if (email == item.Email && senha == item.Senha)
+                    return item;
             }
             return null;
         }
+
     }
 }

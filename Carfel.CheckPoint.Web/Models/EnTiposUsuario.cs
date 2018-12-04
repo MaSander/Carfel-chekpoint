@@ -1,6 +1,6 @@
 namespace Carfel.CheckPoint.Web.Models
 {
-    public enum TiposUsuario
+    public enum EnTiposUsuario
     {
         Administrador, 
 
