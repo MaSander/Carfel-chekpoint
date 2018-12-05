@@ -60,8 +60,11 @@ namespace Carfel.CheckPoint.Web.Repositorios {
                 if(id == ComentariosSalvos[i].Id)
                 {
                     ComentariosSalvos[i].Status = novostatus;
+                    break;
                 }
             }
+
+            EscreverNoArquivo();
         }
 
         public List<ComentarioModel> Listar () {

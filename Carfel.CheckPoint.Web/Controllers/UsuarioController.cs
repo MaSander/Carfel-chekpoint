@@ -107,7 +107,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
                 comentario.Editar(EnTiposComentarios.rejeitado.ToString(), int.Parse(form["id"]));
             }
 
-            return View();
+            return RedirectToAction("Aprovar", "Usuario");
         }
     }
 }

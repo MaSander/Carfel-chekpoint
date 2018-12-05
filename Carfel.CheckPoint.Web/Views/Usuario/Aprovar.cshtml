@@ -26,7 +26,6 @@
         <div class="avaliacao">
 
 
-            <form action="/Usuario/Aprovar" method="POST">
 
                 <!-- inicio do bloco do comentario -->
                 @foreach(ComentarioModel item in ViewData["Comentarios"] as List<ComentarioModel>)
@@ -42,16 +41,17 @@
                             </div>
 
                             <div class="escolha">
-                                <input type="hidden" name="id" value="@item.Id">
-                                <button class="btn_escolha" type="submit" name="choice" value="aprovar">Aprovar</button>
-                                <button class="btn_escolha" type="submit" name="choice" value="rejeitar">Rejeitar</button>
+                                <form action="/Usuario/Aprovar" method="POST">
+                                    <input type="hidden" name="id" value="@item.Id">
+                                    <button class="btn_escolha" type="submit" name="choice" value="aprovar">Aprovar</button>
+                                    <button class="btn_escolha" type="submit" name="choice" value="rejeitar">Rejeitar</button>
+                                </form>
                             </div>
                         </div>
                     }
                 }
                 <!-- final do bloco do comentario -->
 
-            </form>
         </div>
         
         </div>

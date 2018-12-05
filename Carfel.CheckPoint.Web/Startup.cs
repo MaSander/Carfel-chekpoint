@@ -20,7 +20,7 @@ namespace Carfel.CheckPoint.Web
             services.AddDistributedMemoryCache();
 
             services.AddSession(
-                options => options.IdleTimeout = TimeSpan.FromMinutes(30)
+                // options => options.IdleTimeout = TimeSpan.FromMinutes(30)
             );
         }
 

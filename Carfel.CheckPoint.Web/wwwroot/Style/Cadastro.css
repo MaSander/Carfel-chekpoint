@@ -22,7 +22,15 @@ main{
     flex-direction: column;
 }
 .questionario form *{
-    padding: 30px 0 0 0;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+
+#questarea{
+    border-radius: 30px;
+    height: 25px;
+    width: 250px;
+    border: solid cornflowerblue;
 }
 
 .button

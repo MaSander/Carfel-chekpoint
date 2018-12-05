@@ -20,8 +20,8 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
         [HttpGet]
         public ActionResult Home () {
+            ViewBag.UsuarioEmail = HttpContext.Session.GetString ("UsuarioEmail");
             ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioNome");
-            ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioEmail");
             ViewBag.UsuarioTipo = HttpContext.Session.GetString ("UsuarioTipo");
 
             ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado ();
