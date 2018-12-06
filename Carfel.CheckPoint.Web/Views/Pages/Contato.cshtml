@@ -1,0 +1,69 @@
+    @switch (@ViewBag.UsuarioTipo)
+    {
+       case "Administrador":
+       {
+           Layout= "MasterPageAdimin";
+           break;
+       }
+       case "Comum":
+       {
+            if(ViewBag.UsuarioNome != null)
+            {
+                Layout= "MasterPageLogado";
+            } else {
+                Layout= "MasterPageDeslogado";
+            }
+           break;
+       }
+       @default:
+       {
+           Layout= "MasterPageDeslogado";
+           break;
+       }
+    }
+
+<head>
+    <link rel="stylesheet" href="/Style/Contato.css">
+    <title>Check-point / contato</title>
+
+</head>
+
+<body>
+    <main class="flex-container">
+
+        <div id="rede_social">
+            <h1>Contato</h1>
+
+            <div class="redes_sociais flex-container">
+
+                <div id="icons" class="icon_wpp">
+                </div>
+                    <p>99999-9999</p>
+
+                <div id="icons" class="icon_face">
+                    <p>Carfel Statal</p>
+                </div>
+
+                <div id="icons" class="icon_insta">
+                    <p>CF_carfel</p>
+                </div>
+
+                <div id="icons" class="icon_twtr">
+                    <p>CF_carfel</p>
+                </div>
+
+                <div id="icons" class="icon_email">
+                    <p>sac@carfel.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- final de resdes sociais -->
+
+    </main>
+
+</body>
+
+</html>

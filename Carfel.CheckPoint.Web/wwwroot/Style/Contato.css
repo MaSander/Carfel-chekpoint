@@ -1,0 +1,55 @@
+main {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* começo de historia */
+
+#rede_social {
+    margin-top: 25px;
+    width: 98%;
+    border-radius: 15px;
+    padding: 30px 0px;
+    background-color: rgba(0, 0, 0, 0.035);
+    text-align: center;
+}
+
+.redes_sociais {
+    justify-content: space-around;
+}
+
+#icons {
+    margin-top: 20px;
+    width: 90px;
+    height: 90px;
+}
+
+.icon_wpp
+{
+    background-image: url("/imagens_carfel/wpp_icon.png");
+    background-size: contain;
+}
+
+.icon_face
+{
+    background-image: url("../imagens_carfel/facebook-icone-icon.png");
+    background-size: contain;
+}
+
+.icon_insta
+{
+    background-image: url("../imagens_carfel/logo_insta.png");
+    background-size: contain;
+}
+
+.icon_twtr
+{
+    background-image: url("../imagens_carfel/twtr_icon.png");
+    background-size: contain;
+}
+
+.icon_email
+{
+    background-image: url("../imagens_carfel/logo_email.png");
+    background-size: contain;
+}

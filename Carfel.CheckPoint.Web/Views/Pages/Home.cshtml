@@ -162,7 +162,8 @@
                     <form action="/Comentario/Cadastro" method="POST">
 
                         <label>
-                            <input type="text" name="texto" required>
+                            <!-- <input class="areaPcomentario" type="text" name="texto" placeholder="Comente algo aqui!!!" required> -->
+                            <textarea class="areaPcomentario" type="text" name="texto" placeholder="Comente algo aqui!!!" required></textarea>
                         </label>
 
                         <label>
@@ -177,10 +178,10 @@
                 {
                     @if(item.Status == "aprovado")
                     {
-                        <div id="bloco_comentario flex-container">
+                        <div class="bloco_comentario flex-container">
                             <div class="conteudo">
                             <p class="comentario_nome">@item.Nome</p>
-                            <div class="comentado">@item.Texto</div>
+                            <div class="texto-comentario">@item.Texto</div>
                             </div>
                         </div>
                     }

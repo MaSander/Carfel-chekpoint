@@ -45,26 +45,21 @@ h1 {
     align-items: center;
 }
 
-.navegador a {
+.navegador a{
     list-style: none;
     text-decoration: none;
     color: white;
     font-size: 1.3em;
     font-weight: 500;
-}
-
-.NameUser
-{
-    color: white;
-    font-size: 1.3em;
-    font-weight: 500;  
+    transition: 0.1s;
 }
 
 .navegador a:hover {
     text-shadow: 2px 3px 5px black;
     font-size: 2em;
-    transition: 0.5s;
+    /* transition: 0.5s; */
 }
+
 
 .barra-brc {
     width: 1px;

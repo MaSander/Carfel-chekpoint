@@ -26,20 +26,28 @@ main{
     font-size: 1.2em;
 }
 
-#questarea{
-    border-radius: 30px;
-    height: 25px;
-    width: 250px;
-    border: solid cornflowerblue;
+#questArea{
+    border-radius: 4spx;
+    height: 35px;
+    width: 280px;
+    border: solid transparent;
+    font-size: 1em;
+    outline: none;
+    border-bottom: solid black;
 }
 
 .button
 {
-margin-top: 2em;
-width: 10em;
-display: flex;
-   justify-content: center;
-   align-items: center;
+    margin-top: 2em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dodgerblue;
+    color: black;
+    border: solid;
+    font-size: 1.5em;
+    border-radius: 7px;
 }
 
 .mensagem

@@ -30,5 +30,17 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
             return View ();
         }
+
+        public ActionResult FAQ () {
+            ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioNome");
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString ("UsuarioTipo");
+            return View ();
+        }
+
+        public ActionResult Contato () {
+            ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioNome");
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString ("UsuarioTipo");
+            return View ();
+        }
     }
 }

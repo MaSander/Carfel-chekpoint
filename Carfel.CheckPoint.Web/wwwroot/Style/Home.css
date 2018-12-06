@@ -66,6 +66,7 @@
 .imagem_exp_2 img {
     border-radius: 3px;
 }
+
 /* final de explicaçao */
 
 /* inicio planos */
@@ -138,11 +139,41 @@
     background-color: rgba(0, 0, 0, 0.035);
     margin: auto;
     text-align: center;
+    padding: 0px 0px 20px 30px;
+}
+
+.areaPcomentario{
+    outline: none;
+    border: solid;
+    border-radius: 10px;
+    width: 540px;
+    height: 80px;
+    font-size: 1em;
 }
 
 .Comentario h3{
     padding: 20px 0 10px 0;
     font-size: 2em;
+}
+
+.bloco_comentario{
+    background: #262626;
+    color: white;
+    width: 350px;
+    /* height: 65px; */
+    border-radius: 11px;
+    margin-top: 11px;
+    /* margin-left: 30px; */
+    padding: 10px;
+}
+
+.comentario_nome
+{
+    width: 1px;
+}
+
+.texto-comentario{
+    padding: 8px;
 }
 
 /* Comentarios final */
