@@ -9,6 +9,9 @@ namespace Carfel.CheckPoint.Web.Repositorios {
     public class ComentarioRepositorioSerializado : IComentario {
         public List<ComentarioModel> ComentariosSalvos { get; set; }
 
+        /// <summary>
+        /// cria ou pede para ler a lista de comentarios
+        /// </summary>
         public ComentarioRepositorioSerializado () {
             if (File.Exists ("comentarios.dat")) {
                 ComentariosSalvos = LerArquivoSerializado ();
@@ -17,6 +20,10 @@ namespace Carfel.CheckPoint.Web.Repositorios {
             }
         }
 
+        /// <summary>
+        /// Le o arquivo serializado de comentarios
+        /// </summary>
+        /// <returns></returns>
         private List<ComentarioModel> LerArquivoSerializado () {
             byte[] bytesSerializados = File.ReadAllBytes ("comentarios.dat");
 
@@ -28,6 +35,10 @@ namespace Carfel.CheckPoint.Web.Repositorios {
 
         }
 
+        /// <summary>
+        /// adiciona um comentario na lista de comentario
+        /// </summary>
+        /// <param name="comentario"></param>
         public void Cadastrar (ComentarioModel comentario) {
             comentario.Id = ComentariosSalvos.Count + 1;
             ComentariosSalvos.Add (comentario);
@@ -35,6 +46,9 @@ namespace Carfel.CheckPoint.Web.Repositorios {
             EscreverNoArquivo ();
         }
 
+        /// <summary>
+        /// escreve serializada a lista de comentarios no arquivo
+        /// </summary>
         private void EscreverNoArquivo () {
             MemoryStream memoria = new MemoryStream ();
 
@@ -47,10 +61,11 @@ namespace Carfel.CheckPoint.Web.Repositorios {
             File.WriteAllBytes ("comentarios.dat", bytes);
         }
 
-        public ComentarioModel Avaliacao (ComentarioModel comentario) {
-            throw new System.NotImplementedException ();
-        }
-
+        /// <summary>
+        /// Altera o status do comentario
+        /// </summary>
+        /// <param name="novostatus"></param>
+        /// <param name="id"></param>
         public void Editar (string novostatus, int id) {
 
             ComentarioModel comenatrioBuscado = BuscarPorId(id);
@@ -67,10 +82,19 @@ namespace Carfel.CheckPoint.Web.Repositorios {
             EscreverNoArquivo();
         }
 
+        /// <summary>
+        /// metodo que retorna a lista de usuarios para ser usada
+        /// </summary>
+        /// <returns></returns>
         public List<ComentarioModel> Listar () {
             return ComentariosSalvos;
         }
 
+        /// <summary>
+        /// Busca o comentario pelo seu id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ComentarioModel BuscarPorId (int id) {
             foreach (ComentarioModel item in ComentariosSalvos) {
                 if (id == item.Id) {

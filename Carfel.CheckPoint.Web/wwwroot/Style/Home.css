@@ -38,6 +38,8 @@
     text-align: center;
 }
 
+/* segunda parte de explicação */
+
 .exp-preta {
     background-color: black;
     color: white;
@@ -52,6 +54,12 @@
 .imagem_exp_1 img {
     border-radius: 15px;
 }
+
+/* .plano_exp_1 img
+{
+    width: 200px;
+    height: 200px;
+} */
 
 .imagem_exp_3 img {
     border-radius: 3px;

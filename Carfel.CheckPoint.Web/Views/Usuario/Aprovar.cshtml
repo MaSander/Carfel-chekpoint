@@ -25,14 +25,25 @@
 
         <div class="avaliacao">
 
+                <!-- seleção de tipo de comentario -->
+                <form action="/Usuario/Aprovar" method="Get">
+                    <select name="status"  class="ecl_tipo">
+                        <option value="espera">Em espera</option>
 
+                        <option value="aprovado">Aprovados</option>
+
+                        <option value="rejeitado">Rejeitados</option>
+                    </select>
+
+                    <button type="submit">Aplicar</button>
+                </form>
 
                 <!-- inicio do bloco do comentario -->
                 @foreach(ComentarioModel item in ViewData["Comentarios"] as List<ComentarioModel>)
                 {
-                    @if(item.Status == "espera")
-                    {
 
+                    @if(item.Status == @TempData["StatusComentario"].ToString())
+                    {
                         <div id="bloco_comentario flex-container">
 
                             <div class="conteudo">

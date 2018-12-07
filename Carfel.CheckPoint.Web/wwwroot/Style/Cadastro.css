@@ -45,9 +45,17 @@ main{
     align-items: center;
     background-color: dodgerblue;
     color: black;
-    border: solid;
+    outline: none;
+    border: transparent;
     font-size: 1.5em;
     border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2;
+}
+
+.button :hover{
+    
+    /* transition: 0.2; */
 }
 
 .mensagem

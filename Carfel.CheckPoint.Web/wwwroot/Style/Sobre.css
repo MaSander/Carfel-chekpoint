@@ -26,7 +26,10 @@ main {
 .imagem_historia {
     width: 400px;
     height: 500px;
-    background-color: yellowgreen;
+    background-image: url("../imagens_carfel/computador_2.jpg");
+    /* background-position: center; */
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .texto_hist_2 {

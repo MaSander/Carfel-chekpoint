@@ -16,7 +16,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
         #region cadastro de usuario
 
         [HttpGet]
-        public ActionResult Cadastro () {
+        public IActionResult Cadastro () {
 
             UsuarioRepositorioSerializacao repositorioSerializacao = new UsuarioRepositorioSerializacao ();
 
@@ -28,7 +28,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Cadastro (IFormCollection form) {
+        public IActionResult Cadastro (IFormCollection form) {
 
             UsuarioModel usuarioModel = new UsuarioModel (
                 nome: form["nome"],
@@ -57,14 +57,14 @@ namespace Carfel.CheckPoint.Web.Controllers {
         #region Login de usuario
 
         [HttpGet]
-        public ActionResult Login () {
+        public IActionResult Login () {
             ViewBag.UsuarioTipo = HttpContext.Session.GetString("UsuarioTipo");
             ViewBag.UsuarioNome = HttpContext.Session.GetString("UsuarioNome");
             return View ();
         }
 
         [HttpPost]
-        public ActionResult Login (IFormCollection form) {
+        public IActionResult Login (IFormCollection form) {
 
             UsuarioModel usuarioModel = UsuarioRepositorio.BuscarEmailSenha(form["email"],form["senha"]);
 
@@ -84,17 +84,22 @@ namespace Carfel.CheckPoint.Web.Controllers {
             // controler do adiministrador
 
         [HttpGet]
-        public ActionResult Aprovar(){
+        public IActionResult Aprovar(string status){
 
             ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado();
             
+            if(status == null)
+                TempData["StatusComentario"] = status;
+            else
+                TempData["StatusCmentario"] = "aprovado";
+
             ViewData["Comentarios"] = comentarioRepositorio.Listar();
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Aprovar(IFormCollection form){
+        public IActionResult Aprovar(IFormCollection form){
 
             ComentarioRepositorioSerializado comentario = new ComentarioRepositorioSerializado();
 
@@ -107,7 +112,15 @@ namespace Carfel.CheckPoint.Web.Controllers {
                 comentario.Editar(EnTiposComentarios.rejeitado.ToString(), int.Parse(form["id"]));
             }
 
-            return RedirectToAction("Aprovar", "Usuario");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult TipoEscolha(IFormCollection form){
+
+            TempData["StatusComentario"] = form["choice"];
+
+            return RedirectToAction("Aprovar");
         }
     }
 }
