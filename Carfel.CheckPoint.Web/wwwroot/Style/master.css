@@ -6,10 +6,9 @@
 }
 
 h1 {
-    color: blue;
-    text-shadow: 2px 3px 5px  black;
+    color: #1db9dd;
+    text-shadow: 5px 3px 6px black;
     font-size: 5em;
-    font-weight: bold;
 }
 
 .flex-container {

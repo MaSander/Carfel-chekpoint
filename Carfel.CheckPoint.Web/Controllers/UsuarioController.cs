@@ -20,8 +20,8 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
             UsuarioRepositorioSerializacao repositorioSerializacao = new UsuarioRepositorioSerializacao ();
 
-            ViewBag.UsuarioTipo = HttpContext.Session.GetString("UsuarioTipo");
-            ViewBag.UsuarioNome = HttpContext.Session.GetString("UsuarioNome");
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString ("UsuarioTipo");
+            ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioNome");
             // repositorioSerializacao.CadastraADM ();
 
             return View ();
@@ -39,7 +39,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
             if (usuarioModel.Email.Contains ('@') && usuarioModel.Email.Contains (".com")) {
                 if (usuarioModel.Senha.Length >= 6) {
 
-                    usuarioModel.Status = EnTiposUsuario.Comum.ToString();
+                    usuarioModel.Status = EnTiposUsuario.Comum.ToString ();
                     UsuarioRepositorio.Cadastrar (usuarioModel);
 
                     ViewBag.Mensagem = "Usuario cadastrado !";
@@ -58,22 +58,22 @@ namespace Carfel.CheckPoint.Web.Controllers {
 
         [HttpGet]
         public IActionResult Login () {
-            ViewBag.UsuarioTipo = HttpContext.Session.GetString("UsuarioTipo");
-            ViewBag.UsuarioNome = HttpContext.Session.GetString("UsuarioNome");
+            ViewBag.UsuarioTipo = HttpContext.Session.GetString ("UsuarioTipo");
+            ViewBag.UsuarioNome = HttpContext.Session.GetString ("UsuarioNome");
             return View ();
         }
 
         [HttpPost]
         public IActionResult Login (IFormCollection form) {
 
-            UsuarioModel usuarioModel = UsuarioRepositorio.BuscarEmailSenha(form["email"],form["senha"]);
+            UsuarioModel usuarioModel = UsuarioRepositorio.BuscarEmailSenha (form["email"], form["senha"]);
 
             if (usuarioModel != null) {
 
-                HttpContext.Session.SetString("UsuarioTipo", usuarioModel.Status);
-                HttpContext.Session.SetString("UsuarioNome", usuarioModel.Nome);
-                HttpContext.Session.SetString("UsuarioEmail", usuarioModel.Email);
-                return RedirectToAction ("Home","Pages");
+                HttpContext.Session.SetString ("UsuarioTipo", usuarioModel.Status);
+                HttpContext.Session.SetString ("UsuarioNome", usuarioModel.Nome);
+                HttpContext.Session.SetString ("UsuarioEmail", usuarioModel.Email);
+                return RedirectToAction ("Home", "Pages");
             }
 
             ViewBag.Mensagem = "Usuario Incorreto";
@@ -81,46 +81,47 @@ namespace Carfel.CheckPoint.Web.Controllers {
         }
         #endregion
 
-            // controler do adiministrador
+        // controler do adiministrador
 
         [HttpGet]
-        public IActionResult Aprovar(string status){
+        public IActionResult Aprovar (string status) {
 
-            ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado();
-            
-            if(status == null)
-                TempData["StatusComentario"] = status;
-            else
-                TempData["StatusCmentario"] = "aprovado";
+            ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado ();
 
-            ViewData["Comentarios"] = comentarioRepositorio.Listar();
+            // if(status == "rejeitado")
+            //     TempData["StatusComentario"] = "rejeitado";
+            // else
 
-            return View();
+            ViewData["Comentarios"] = comentarioRepositorio.Listar ();
+
+            // if (TempData["StatusComentario"] == null) {
+            //     TempData["StatusComentario"] = "espera";
+            // }
+
+            return View ();
         }
 
         [HttpPost]
-        public IActionResult Aprovar(IFormCollection form){
+        public IActionResult Aprovar (IFormCollection form) {
 
-            ComentarioRepositorioSerializado comentario = new ComentarioRepositorioSerializado();
+            ComentarioRepositorioSerializado comentario = new ComentarioRepositorioSerializado ();
 
-            if(form["choice"] == "aprovar")
-            {
-                comentario.Editar(EnTiposComentarios.aprovado.ToString(), int.Parse(form["id"]));
+            if (form["choice"] == "aprovar") {
+                comentario.Editar (EnTiposComentarios.aprovado.ToString (), int.Parse (form["id"]));
             }
-            if(form["choice"] == "rejeitar")
-            {
-                comentario.Editar(EnTiposComentarios.rejeitado.ToString(), int.Parse(form["id"]));
+            if (form["choice"] == "rejeitar") {
+                comentario.Editar (EnTiposComentarios.rejeitado.ToString (), int.Parse (form["id"]));
             }
 
-            return View();
+            return RedirectToAction ("Aprovar");
         }
 
-        [HttpPost]
-        public IActionResult TipoEscolha(IFormCollection form){
+        // [HttpPost]
+        // public IActionResult TipoEscolha (IFormCollection form) {
 
-            TempData["StatusComentario"] = form["choice"];
+        //     TempData["StatusComentario"] = form["status"];
 
-            return RedirectToAction("Aprovar");
-        }
+        //     return RedirectToAction ("Aprovar");
+        // }
     }
 }

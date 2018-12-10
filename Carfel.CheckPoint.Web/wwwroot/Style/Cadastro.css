@@ -14,7 +14,7 @@ main{
 
 .questionario
 {
-    height: 100%;
+    height: auto;
 }
 
 .questionario form
@@ -43,7 +43,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: dodgerblue;
+    background-color: #1DB9DD;
     color: black;
     outline: none;
     border: transparent;
@@ -61,4 +61,15 @@ main{
 .mensagem
 {
     margin-top: 20px;
+}
+
+footer {
+    justify-content: space-around;
+    margin-top: 25px;
+    color: white;
+    background-color: black;
+    padding: 30px 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

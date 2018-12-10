@@ -111,7 +111,7 @@
                 <div class="texto_plano">
                     <p>monitoramento de 1 pessoa</p>
                     <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis provident dolor hic dolorem reiciendis
-                        cupiditate ipsum adipisci rem nostrum eligendi? Debitis beatae sunt ex pariatur vel accusamus assumenda
+                        cupiditate eligendi? Debitis beatae sunt ex pariatur vel accusamus assumenda
                         sint unde?</span>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     <h2>199,90</h2>
                 </div>
                 <div class="texto_plano">
-                    <p>monitoramentos ilimitados</p>
+                    <p>monitoramentos ilimitados de membros</p>
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, totam impedit. Dicta, asperiores?
                         Est consequuntur, minus aspernatur, labore mollitia a accusantium necessitatibus earum expedita nam
                         natus neque, veritatis iusto qui?</span>
@@ -171,6 +171,8 @@
                         </label>
                         
                     </form>
+                } else{
+                    <p>Prar comentar faça login</p>
                 }
             
                             <!-- inicio do bloco do comentario -->
@@ -178,12 +180,13 @@
                 {
                     @if(item.Status == "aprovado")
                     {
-                        <div class="bloco_comentario flex-container">
-                            <div class="conteudo">
-                            <p class="comentario_nome">@item.Nome</p>
-                            <p class="comentario_data">@item.Horario</p>
-                            <div class="texto-comentario">@item.Texto</div>
+                        <div class="bloco_comentario">
+                            
+                            <div class="cabeca_comentario flex-container">
+                                <p class="comentario_nome">@item.Nome</p>
+                                <p class="comentario_data">@item.Horario</p>
                             </div>
+                            <div class="texto-comentario">@item.Texto</div>
                         </div>
                     }
                 }

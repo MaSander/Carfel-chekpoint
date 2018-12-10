@@ -110,7 +110,7 @@
     width: 400px;
     height: 400px;
     background-color: black;
-    border: 25px solid #1D94B8;
+    border: 25px solid #1D94D8;
     border-radius: 50%;
     text-align: center;
     align-items: center;
@@ -159,9 +159,25 @@
     font-size: 1em;
 }
 
+.button
+{
+    background-color: #1DB9DD;
+    border: solid transparent;
+    border-radius: 7px;
+    font-size: 1em;
+    outline: none;
+    cursor: pointer;
+}
+
 .Comentario h3{
     padding: 20px 0 10px 0;
     font-size: 2em;
+}
+
+.cabeca_comentario{
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: solid #1DB9DD;
 }
 
 .bloco_comentario{
@@ -172,7 +188,7 @@
     border-radius: 11px;
     margin-top: 11px;
     /* margin-left: 30px; */
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .comentario_nome
@@ -188,10 +204,33 @@
 
 /* responsividade */
 
-@media screen and (max-width: 1255px) {
+@media screen and (max-width: 1300px) {
 
-    .banner h1 {
-        font-size: 6em;
+    .planos{
+        flex-direction: column;
+    }
+
+    #planos
+    {
+        height: 130vh;
+    }
+
+    .plano_1{
+        height: 250px;
+        width: 250px;
+    }
+
+    .plano_2{
+        width: 350px;
+        height: 350px;
+    }
+    .plano_3{
+        width: 470px;
+        height: 470px;
+    }
+
+    .plano_1 .texto_plano span{
+        display: none;
     }
 
 }

@@ -22,43 +22,53 @@
        }
     }
 
-<html>
 <head>
-    <title>Cadastro de usuario</title>
 
-    <link rel="stylesheet" href="/Style/Cadastro.css">
-    
+    <link rel="stylesheet" href="/Style/FAQ.css">
+    <title>Check-point / contato</title>
+
 </head>
 
 <body>
-    <main class="flex-container">
 
-        <div id="bloco_1">
+    <main class="conteudo flex-container">
 
-        <h1>FAQ</h1>
+        <!-- inicio das duvidas frequentes -->
 
-            <div class="questionario">
+        <div class="duvidas_frequentes flex-container">
+            <h1>FAQ</h1>
 
-                <form class="flex-container" action="/Usuario/Login" method="POST">
-        
-                    <label>
-                        <h3>E-mail</h3>
-                        <input id="questArea" type="email" name="email">
-                    </label>
-        
-                    <label>
-                        <h3>Senha</h3>
-                        <input id="questArea" type="password" name="senha">
-                    </label>
-                
-                    <button class="button" type="submit">Logar</button>
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Como o softwer funciona?</p>
+            </div>
 
-                    @ViewBag.Mensagem
-                </form>
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Como adiquirir o softwer?</p>
+            </div>
+
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Como utilizar o softwer?</p>
+            </div>
+
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Quanto pesa o softwer?</p>
+            </div>
+
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Como instalar?</p>
+            </div>
+
+            <div id="faq" class="flex-container">
+                <div class="duvida_1"></div>
+                <p>Outras pergunta</p>
             </div>
         </div>
 
+        <!-- final das duvidas frequentes -->
     </main>
-
 </body>
-</html>

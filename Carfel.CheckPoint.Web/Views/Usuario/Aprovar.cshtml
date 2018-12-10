@@ -26,23 +26,22 @@
         <div class="avaliacao">
 
                 <!-- seleção de tipo de comentario -->
-                <form action="/Usuario/Aprovar" method="Get">
+                <!-- <form action="/Usuario/TipoEscolha" method="POST">
                     <select name="status"  class="ecl_tipo">
-                        <option value="espera">Em espera</option>
+                        <option name="status" value="espera">Em espera</option>
 
-                        <option value="aprovado">Aprovados</option>
+                        <option name="status" value="aprovado">Aprovados</option>
 
-                        <option value="rejeitado">Rejeitados</option>
+                        <option name="status" value="rejeitado">Rejeitados</option>
                     </select>
 
                     <button type="submit">Aplicar</button>
-                </form>
+                </form> -->
 
                 <!-- inicio do bloco do comentario -->
-                @foreach(ComentarioModel item in ViewData["Comentarios"] as List<ComentarioModel>)
+                @foreach(ComentarioModel item in @ViewData["Comentarios"] as List<ComentarioModel>)
                 {
-
-                    @if(item.Status == @TempData["StatusComentario"].ToString())
+                    @if(item.Status == "espera") // @TempData["StatusComentario"].ToString()
                     {
                         <div id="bloco_comentario flex-container">
 
@@ -64,7 +63,7 @@
                 <!-- final do bloco do comentario -->
 
         </div>
-        
+
         </div>
 
     </main>

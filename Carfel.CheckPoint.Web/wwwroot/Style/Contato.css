@@ -53,3 +53,28 @@ main {
     background-image: url("../imagens_carfel/logo_email.png");
     background-size: contain;
 }
+
+footer {
+    justify-content: space-around;
+    margin-top: 25px;
+    color: white;
+    background-color: black;
+    padding: 30px 30px;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+}
+
+.mapa
+{
+    margin-top: 25px;
+}
+
+.localizacao{
+    margin-top: 25px;
+    width: 98%;
+    border-radius: 15px;
+    padding: 30px 0px;
+    background-color: rgba(0, 0, 0, 0.035);
+    text-align: center;
+}

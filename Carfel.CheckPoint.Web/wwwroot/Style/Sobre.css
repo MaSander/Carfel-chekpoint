@@ -25,11 +25,12 @@ main {
 
 .imagem_historia {
     width: 400px;
-    height: 500px;
+    height: 267px;
     background-image: url("../imagens_carfel/computador_2.jpg");
     /* background-position: center; */
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 12%;
 }
 
 .texto_hist_2 {
@@ -62,13 +63,14 @@ main {
 
 .imagem_ot {
     width: 400px;
-    height: 400px;
-    background-color: yellowgreen;
+    height: 320px;
+    /* background-color: yellowgreen; */
 }
 
 .imagem_ot img{
     width: 100%;
     height: 100%;
+    border-radius: 10%;
 }
 
 /* final de outros trabalhos */
@@ -91,4 +93,27 @@ main {
     width: 90px;
     height: 90px;
     background-color: yellowgreen;
+}
+
+/* Responsividade */
+
+@media screen and (max-width: 1300px)
+{
+    .fila_trab_1 {
+        display: none;
+    }
+
+    .fila_trab_2 {
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-between; */
+    }
+
+    .imagem_ot{
+        margin-top: 5px;
+    }
+
+    .p_2_hist{
+        display: none;
+    }
 }
