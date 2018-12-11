@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cadastro de usuario</title>
 
-    <link rel="stylesheet" href="/Style/Cadastro.css">
+    <link rel="stylesheet" href="/Style/Aprovar.css">
     
 </head>
 
@@ -39,27 +39,43 @@
                 </form> -->
 
                 <!-- inicio do bloco do comentario -->
+                @{
+                    int cont = 0;
+                }
+
                 @foreach(ComentarioModel item in @ViewData["Comentarios"] as List<ComentarioModel>)
                 {
+
                     @if(item.Status == "espera") // @TempData["StatusComentario"].ToString()
                     {
-                        <div id="bloco_comentario flex-container">
+                        <div id="bloco_comentario">
 
-                            <div class="conteudo">
-                            <p class="comentario_nome">@item.Nome</p>
-                            <div class="comentado">@item.Texto</div>
+                            <div class="bloco_conteudo">
+                                <p class="comentario_nome">@item.Nome</p>
+                                <p>@item.Horario</p>
+                                <p class="comentado">@item.Texto</p>
                             </div>
 
                             <div class="escolha">
                                 <form action="/Usuario/Aprovar" method="POST">
                                     <input type="hidden" name="id" value="@item.Id">
-                                    <button class="btn_escolha" type="submit" name="choice" value="aprovar">Aprovar</button>
-                                    <button class="btn_escolha" type="submit" name="choice" value="rejeitar">Rejeitar</button>
+                                    <button id="btn_escolha" class="btn_escolha_aprova" type="submit" name="choice" value="aprovar">Aprovar</button>
+                                    <button id="btn_escolha" class="btn_escolha_rejeita" type="submit" name="choice" value="rejeitar">Rejeitar</button>
                                 </form>
                             </div>
                         </div>
+                    
+                        {
+                            cont++;
+                        }
                     }
                 }
+
+                @if(cont == 0){
+                    <p>Nenhum comentario com este status</p>
+                }
+                
+
                 <!-- final do bloco do comentario -->
 
         </div>

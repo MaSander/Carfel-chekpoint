@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="plano_exp_1">
-                    <img src="../imagens_carfel/astro_azul.jpg" alt="globo azul">
+                    <img src="../imagens_carfel/astro_azul.jpg" class="image_sumir" alt="globo azul">
                 </div>
 
             </div>
@@ -184,7 +184,7 @@
                             
                             <div class="cabeca_comentario flex-container">
                                 <p class="comentario_nome">@item.Nome</p>
-                                <p class="comentario_data">@item.Horario</p>
+                                <p class="comentario_data">@item.Horario.ToShortDateString()</p>
                             </div>
                             <div class="texto-comentario">@item.Texto</div>
                         </div>

@@ -39,7 +39,7 @@ namespace Carfel.CheckPoint.Web
             app.UseMvc(
                 rota => rota.MapRoute(
                     name: "defaults",
-                    template: "{controller=Usuario}/{action=Cadastro}"
+                    template: "{controller=Pages}/{action=Home}"
                 )
             );
 

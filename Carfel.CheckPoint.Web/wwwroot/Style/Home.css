@@ -193,7 +193,8 @@
 
 .comentario_nome
 {
-    width: 1px;
+    width: 60%;
+    width: auto;
 }
 
 .texto-comentario{
@@ -232,5 +233,37 @@
     .plano_1 .texto_plano span{
         display: none;
     }
+
+}
+
+@media screen and (max-width: 600px){
+
+    .plano_exp_1{
+        display: none !important;
+    }
+
+    .image_sumir{
+        display: none;
+    }
+
+    .plano_exp_2{
+        display: none !important;
+    }
+
+    .plano_exp_3{
+        display: none !important;
+    }
+
+    /* .plano_exp_1 img{
+        display: none;
+    }
+
+    .plano_exp_2 img{
+        display: none;
+    }
+
+    .plano_exp_3 img{
+        display: none;
+    } */
 
 }

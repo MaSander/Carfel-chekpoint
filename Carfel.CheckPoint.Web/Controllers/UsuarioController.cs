@@ -86,6 +86,11 @@ namespace Carfel.CheckPoint.Web.Controllers {
         [HttpGet]
         public IActionResult Aprovar (string status) {
 
+            if(HttpContext.Session.GetString ("UsuarioTipo") != "Administrador"){
+                return RedirectToAction("login");
+            }else{
+
+
             ComentarioRepositorioSerializado comentarioRepositorio = new ComentarioRepositorioSerializado ();
 
             // if(status == "rejeitado")
@@ -99,6 +104,7 @@ namespace Carfel.CheckPoint.Web.Controllers {
             // }
 
             return View ();
+            }
         }
 
         [HttpPost]
